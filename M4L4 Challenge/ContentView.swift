@@ -11,14 +11,19 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 0){
             GeometryReader { geo in
-                ZStack {
                     Rectangle()
                         .frame(width:geo.size.width ,height:geo.size.height)
                         .foregroundColor(.green)
+                        .onTapGesture {
+                            print("width: \(geo.size.width), height: \(geo.size.height)")
+                        }
                     Rectangle()
                         .frame(width:geo.size.width*(2/3), height: geo.size.height/4)
                         .foregroundColor(.red)
-                }
+                        .position(x:geo.size.width/2, y:geo.size.height/2)
+                        .onTapGesture {
+                            print("width: \(geo.size.width*(2/3)), height:\(geo.size.height/4)")
+                        }
             }
             
             GeometryReader { geo in
@@ -26,9 +31,16 @@ struct ContentView: View {
                     Rectangle()
                         .frame(width:geo.size.width/2)
                         .foregroundColor(.purple)
+                        .onTapGesture {
+                            print("width: \(geo.size.width/2), height: \(geo.size.height)")
+                        }
                     Rectangle()
                         .foregroundColor(.orange)
+                        .onTapGesture {
+                            print("width: \(geo.size.width/2), height: \(geo.size.height)")
+                        }
                 }
+                
             }
         }
         .ignoresSafeArea()
