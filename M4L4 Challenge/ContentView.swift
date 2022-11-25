@@ -29,9 +29,6 @@ struct ContentView: View {
                     Rectangle()
                         .foregroundColor(.orange)
                 }
-                
-                    
-                
             }
         }
         .ignoresSafeArea()
